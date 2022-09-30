@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
 using DebitExpress.VatRelief.Models;
 using DebitExpress.VatRelief.Utils;
@@ -118,6 +117,7 @@ public partial class MainWindow
 
             NotifyResult("Files generated successfully");
             OpenFolder(path);
+            GC.Collect();
         }
         finally
         {

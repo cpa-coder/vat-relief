@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace DebitExpress.VatRelief.Utils;
@@ -118,5 +119,12 @@ internal static class Extensions
 
         var eom = DateTime.DaysInMonth(year + 1, month - lastMonth);
         return new DateTime(year + 1, month - lastMonth, eom);
+    }
+    
+    public static void ForceClear<T>(this List<T> list)
+    {
+        list.Clear();            
+        var id = GC.GetGeneration(list);
+        GC.Collect(id, GCCollectionMode.Forced);
     }
 }

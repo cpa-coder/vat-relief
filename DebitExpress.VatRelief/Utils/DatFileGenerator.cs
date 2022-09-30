@@ -51,6 +51,13 @@ public class DatFileGenerator
         if (secondMonthPurchases.Count > 0) await generator.GeneratePurchasesAsync(info, secondMonth, secondMonthPurchases, path);
         if (thirdMonthPurchases.Count > 0) await generator.GeneratePurchasesAsync(info, thirdMonth, thirdMonthPurchases, path);
 
+        firstMonthSales.Clear();
+        secondMonthSales.Clear();
+        thirdMonthSales.Clear();
+        firstMonthPurchases.Clear();
+        secondMonthPurchases.Clear();
+        thirdMonthPurchases.Clear();
+        
         return new Result();
     }
 
@@ -254,7 +261,7 @@ public class DatFileGenerator
     {
         foreach (var item in items)
         {
-            var line = $"D,P,{item.Tin.Strip()}," +
+            var line = $"D,P,\"{item.Tin.Strip()}\"," +
                        $"\"{item.RegName}\"," +
                        $"\"{item.LastName}\"," +
                        $"\"{item.FirstName}\"," +

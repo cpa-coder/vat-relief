@@ -75,6 +75,9 @@ public class ExcelReconWriter
 
             workbook.SaveAs(fullPath);
 
+            extractedSales.ForceClear();
+            extractedPurchases.ForceClear();
+
             return new Result();
         }
         catch (Exception e)
