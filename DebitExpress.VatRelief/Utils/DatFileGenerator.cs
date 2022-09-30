@@ -38,6 +38,10 @@ public class DatFileGenerator
         var secondMonthPurchases = purchases.Where(x => x.EndOfMonth == secondMonth).ToList();
         var thirdMonthPurchases = purchases.Where(x => x.EndOfMonth == thirdMonth).ToList();
 
+        if (firstMonthSales.Count == 0 && secondMonthSales.Count == 0 && thirdMonthSales.Count == 0 &&
+            firstMonthPurchases.Count == 0 && secondMonthPurchases.Count == 0 && thirdMonthPurchases.Count == 0)
+            return new Result(new Exception("No data available for generating the files"));
+
         var generator = new DatFileGenerator();
         if (firstMonthSales.Count > 0) await generator.GenerateSalesAsync(info, firstMonth, firstMonthSales, path);
         if (secondMonthSales.Count > 0) await generator.GenerateSalesAsync(info, secondMonth, secondMonthSales, path);
@@ -50,7 +54,7 @@ public class DatFileGenerator
         return new Result();
     }
 
-    internal async Task GenerateSalesAsync(Info info, DateTime month, List<Sales> items, string path)
+    private async Task GenerateSalesAsync(Info info, DateTime month, IReadOnlyCollection<Sales> items, string path)
     {
         var datFileFolder = Path.Combine(path, "DAT FILES");
         Directory.CreateDirectory(datFileFolder);
@@ -177,7 +181,7 @@ public class DatFileGenerator
         }
     }
 
-    internal async Task GeneratePurchasesAsync(Info company, DateTime month, List<Purchases> items, string path)
+    private async Task GeneratePurchasesAsync(Info company, DateTime month, List<Purchases> items, string path)
     {
         var datFileFolder = Path.Combine(path, "DAT FILES");
         Directory.CreateDirectory(datFileFolder);
