@@ -164,12 +164,12 @@ public class ExcelReconWriter
         }
 
         sheet.Cell($"A{row + 2}").Value = "Grand Total :";
-        sheet.Cell($"F{row + 2}").FormulaA1 = $"=SUM(F15:F{row})";
-        sheet.Cell($"G{row + 2}").FormulaA1 = $"=SUM(G15:G{row})";
-        sheet.Cell($"H{row + 2}").FormulaA1 = $"=SUM(H15:H{row})";
-        sheet.Cell($"I{row + 2}").FormulaA1 = $"=SUM(I15:I{row})";
-        sheet.Cell($"J{row + 2}").FormulaA1 = $"=SUM(J15:J{row})";
-        sheet.Cell($"K{row + 2}").FormulaA1 = $"=SUM(K15:K{row})";
+        sheet.Cell($"F{row + 2}").FormulaA1 = $"=SUM(F15:F{row - 1})";
+        sheet.Cell($"G{row + 2}").FormulaA1 = $"=SUM(G15:G{row - 1})";
+        sheet.Cell($"H{row + 2}").FormulaA1 = $"=SUM(H15:H{row - 1})";
+        sheet.Cell($"I{row + 2}").FormulaA1 = $"=SUM(I15:I{row - 1})";
+        sheet.Cell($"J{row + 2}").FormulaA1 = $"=SUM(J15:J{row - 1})";
+        sheet.Cell($"K{row + 2}").FormulaA1 = $"=SUM(K15:K{row - 1})";
 
         sheet.Cells($"F{row + 2}:K{row + 2}").Style.Font.Bold = true;
         sheet.Cells($"F{row + 2}:K{row + 2}").Style.NumberFormat.Format = "###,###,###,##0.00";
@@ -270,15 +270,15 @@ public class ExcelReconWriter
         }
 
         sheet.Cell($"A{row + 2}").Value = "Grand Total :";
-        sheet.Cell($"F{row + 2}").FormulaA1 = $"=SUM(F15:F{row})";
-        sheet.Cell($"G{row + 2}").FormulaA1 = $"=SUM(G15:G{row})";
-        sheet.Cell($"H{row + 2}").FormulaA1 = $"=SUM(H15:H{row})";
-        sheet.Cell($"I{row + 2}").FormulaA1 = $"=SUM(I15:I{row})";
-        sheet.Cell($"J{row + 2}").FormulaA1 = $"=SUM(J15:J{row})";
-        sheet.Cell($"K{row + 2}").FormulaA1 = $"=SUM(K15:K{row})";
-        sheet.Cell($"L{row + 2}").FormulaA1 = $"=SUM(L15:L{row})";
-        sheet.Cell($"M{row + 2}").FormulaA1 = $"=SUM(M15:M{row})";
-        sheet.Cell($"N{row + 2}").FormulaA1 = $"=SUM(N15:N{row})";
+        sheet.Cell($"F{row + 2}").FormulaA1 = $"=SUM(F15:F{row - 1})";
+        sheet.Cell($"G{row + 2}").FormulaA1 = $"=SUM(G15:G{row - 1})";
+        sheet.Cell($"H{row + 2}").FormulaA1 = $"=SUM(H15:H{row - 1})";
+        sheet.Cell($"I{row + 2}").FormulaA1 = $"=SUM(I15:I{row - 1})";
+        sheet.Cell($"J{row + 2}").FormulaA1 = $"=SUM(J15:J{row - 1})";
+        sheet.Cell($"K{row + 2}").FormulaA1 = $"=SUM(K15:K{row - 1})";
+        sheet.Cell($"L{row + 2}").FormulaA1 = $"=SUM(L15:L{row - 1})";
+        sheet.Cell($"M{row + 2}").FormulaA1 = $"=SUM(M15:M{row - 1})";
+        sheet.Cell($"N{row + 2}").FormulaA1 = $"=SUM(N15:N{row - 1})";
 
         sheet.Cells($"F{row + 2}:N{row + 2}").Style.Font.Bold = true;
         sheet.Cells($"F{row + 2}:N{row + 2}").Style.NumberFormat.Format = "###,###,###,##0.00";
