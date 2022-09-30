@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using DebitExpress.VatRelief.Models;
 using DebitExpress.VatRelief.Utils;
@@ -31,6 +32,7 @@ public partial class MainWindow
         ErrorSnackBar.MessageQueue = _errorQueue;
 
         GenerateButton.Click += OnGenerate;
+        DownloadButton.Click += OnDownload;
     }
 
     #region Drag and drop
@@ -74,6 +76,8 @@ public partial class MainWindow
     }
 
     #endregion
+
+    #region Generate
 
     private async void OnGenerate(object sender, RoutedEventArgs e)
     {
@@ -138,6 +142,8 @@ public partial class MainWindow
         Process.Start(startInfo);
     }
 
+    #endregion
+
     private void NotifyErrorResult(string message)
     {
         _messageQueue.Clear();
@@ -149,4 +155,42 @@ public partial class MainWindow
         _errorQueue.Clear();
         _messageQueue.Enqueue(message, "×", () => { });
     }
+
+    #region download template
+
+    private void OnDownload(object sender, RoutedEventArgs e)
+    {
+        DownloadButton.IsEnabled = false;
+
+        try
+        {
+            var path = Path.Combine(Path.GetTempPath(), "vat-relief");
+            Directory.CreateDirectory(path);
+
+            var assembly = Assembly.GetExecutingAssembly();
+            using var stream = assembly.GetManifestResourceStream("DebitExpress.VatRelief.template.xlsx");
+
+            if (stream == null) return;
+
+            var filePath = Path.Combine(path, "template.xlsx");
+            using var fileStream = File.Create(Path.Combine(filePath));
+            stream.Seek(0, SeekOrigin.Begin);
+            stream.CopyTo(fileStream);
+            fileStream.Close();
+
+            NotifyResult("Template downloaded successfully");
+            OpenExcelFile(filePath);
+        }
+        finally
+        {
+            DownloadButton.IsEnabled = true;
+        }
+    }
+
+    private static void OpenExcelFile(string excelFile)
+    {
+        new Process { StartInfo = new ProcessStartInfo(excelFile) { UseShellExecute = true } }.Start();
+    }
+
+    #endregion
 }

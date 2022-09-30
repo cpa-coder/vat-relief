@@ -92,5 +92,21 @@
                 Style="{StaticResource MaterialDesignFlatMidBgButton}"
                 Content="Generate" />
         </StackPanel>
+        <StackPanel
+            Margin="10,40,10,10"
+            Orientation="Horizontal"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right">
+            <Button
+                x:Name="DownloadButton"
+                ToolTip="Download excel template"
+                Style="{StaticResource MaterialDesignFlatButton}">
+                <materialDesign:PackIcon 
+                    Kind="Download" 
+                    Height="20" 
+                    Width="20"
+                    Foreground="{StaticResource PrimaryHueMidBrush}"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </ctrl:Window>
