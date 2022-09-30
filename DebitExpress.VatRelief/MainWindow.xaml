@@ -19,6 +19,36 @@
     attached:WindowElement.ExtendContentToNonClientArea="True"
     attached:WindowElement.SaveWindowPosition="True"
     Height="500" Width="350">
+    <ctrl:Window.NonClientAreaContent>
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Right">
+            <Button
+                x:Name="GithubButton"
+                Width="46"
+                Height="29"
+                ToolTip="Open project on Github"
+                Style="{StaticResource MaterialDesignTitleBarButton}">
+                <materialDesign:PackIcon
+                    Kind="Github"
+                    Height="20"
+                    Width="20"
+                    Foreground="{StaticResource PrimaryHueMidBrush}" />
+            </Button>
+            <Button
+                x:Name="DownloadButton"
+                Width="46"
+                Height="29"
+                ToolTip="Download excel template"
+                Style="{StaticResource MaterialDesignTitleBarButton}">
+                <materialDesign:PackIcon
+                    Kind="Download"
+                    Height="20"
+                    Width="20"
+                    Foreground="{StaticResource PrimaryHueMidBrush}" />
+            </Button>
+        </StackPanel>
+    </ctrl:Window.NonClientAreaContent>
     <ctrl:Window.IconContent>
         <Image
             Margin="7,5,0,5"
@@ -91,22 +121,6 @@
                 materialDesign:ButtonAssist.CornerRadius="20"
                 Style="{StaticResource MaterialDesignFlatMidBgButton}"
                 Content="Generate" />
-        </StackPanel>
-        <StackPanel
-            Margin="10,40,10,10"
-            Orientation="Horizontal"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Right">
-            <Button
-                x:Name="DownloadButton"
-                ToolTip="Download excel template"
-                Style="{StaticResource MaterialDesignFlatButton}">
-                <materialDesign:PackIcon 
-                    Kind="Download" 
-                    Height="20" 
-                    Width="20"
-                    Foreground="{StaticResource PrimaryHueMidBrush}"/>
-            </Button>
         </StackPanel>
     </Grid>
 </ctrl:Window>

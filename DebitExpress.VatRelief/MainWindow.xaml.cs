@@ -33,6 +33,7 @@ public partial class MainWindow
 
         GenerateButton.Click += OnGenerate;
         DownloadButton.Click += OnDownload;
+        GithubButton.Click+= OnGithub;
     }
 
     #region Drag and drop
@@ -193,4 +194,9 @@ public partial class MainWindow
     }
 
     #endregion
+
+    private void OnGithub(object sender, RoutedEventArgs e)
+    {
+        new Process { StartInfo = new ProcessStartInfo("https://github.com/cpa-coder/vat-relief") { UseShellExecute = true } }.Start();
+    }
 }
