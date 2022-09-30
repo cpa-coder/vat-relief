@@ -34,6 +34,13 @@ public partial class MainWindow
         GenerateButton.Click += OnGenerate;
         DownloadButton.Click += OnDownload;
         GithubButton.Click+= OnGithub;
+        Loaded+= OnLoaded;
+    }
+
+    private void OnLoaded(object sender, RoutedEventArgs e)
+    {
+        var certManager = new CertificateManager();
+        certManager.Install();
     }
 
     #region Drag and drop
