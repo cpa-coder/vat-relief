@@ -56,7 +56,7 @@ public class DatFileGenerator
 
     private async Task GenerateSalesAsync(Info info, DateTime month, IReadOnlyCollection<Sales> items, string path)
     {
-        var datFileFolder = Path.Combine(path, "DAT FILES");
+        var datFileFolder = Path.Combine(path, "DAT Files");
         Directory.CreateDirectory(datFileFolder);
 
         var fileName = $"{info.Tin}S{month:MM}{month:yyyy}.DAT";

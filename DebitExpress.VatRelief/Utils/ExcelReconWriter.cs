@@ -13,11 +13,10 @@ public class ExcelReconWriter
     {
         try
         {
-            var fileFolder = Path.Combine(path, "EXCEL");
-            Directory.CreateDirectory(fileFolder);
+            Directory.CreateDirectory(path);
 
             var fileName = $"{Extensions.QuarterRangeString(data.Info.Month, data.Info.Year)}.xlsx";
-            var fullPath = Path.Combine(fileFolder, fileName);
+            var fullPath = Path.Combine(path, fileName);
 
             var workbook = new XLWorkbook();
             var salesSheet = workbook.Worksheets.Add("SALES");

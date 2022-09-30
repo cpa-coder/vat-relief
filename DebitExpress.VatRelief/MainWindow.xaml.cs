@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using DebitExpress.VatRelief.Models;
 using DebitExpress.VatRelief.Utils;
@@ -93,9 +95,9 @@ public partial class MainWindow
                 return;
             }
 
-            const string loc = @"%USERPROFILE%\Desktop";
-            var path = Environment.ExpandEnvironmentVariables(loc);
             ExcelData data = result;
+            var path = Path.Combine(Path.GetTempPath(), "vat-relief", Guid.NewGuid().ToString().Replace("-", string.Empty));
+            Directory.CreateDirectory(path);
 
             var generator = new DatFileGenerator();
             var generateResult = await generator.GenerateAsync(data, path);
@@ -108,15 +110,32 @@ public partial class MainWindow
             var reconWriter = new ExcelReconWriter();
             var writeResult = reconWriter.WriteReconciliationReport(data, path);
 
-            if (writeResult.IsSuccess)
-                NotifyResult("Files generated successfully");
-            else
+            if (writeResult.IsFaulted)
+            {
                 NotifyErrorResult(writeResult.ToString());
+                return;
+            }
+
+            NotifyResult("Files generated successfully");
+            OpenFolder(path);
         }
         finally
         {
             GenerateButton.IsEnabled = true;
         }
+    }
+
+    private void OpenFolder(string path)
+    {
+        if (!Directory.Exists(path)) return;
+
+        var startInfo = new ProcessStartInfo
+        {
+            Arguments = path,
+            FileName = "explorer.exe"
+        };
+
+        Process.Start(startInfo);
     }
 
     private void NotifyErrorResult(string message)

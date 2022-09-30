@@ -7,7 +7,6 @@
     xmlns:ctrl="http://debitexpress.com/winfx/xaml/controls"
     xmlns:attached="http://debitexpress.com/winfx/xaml/attached-properties"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:dialogs="http://debitexpress.com/winfx/xaml/dialogs"
     mc:Ignorable="d"
     ResizeMode="NoResize"
     Title="DebitExpress VAT Relief"
