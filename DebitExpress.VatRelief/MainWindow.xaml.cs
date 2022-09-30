@@ -169,18 +169,18 @@ public partial class MainWindow
             Directory.CreateDirectory(path);
 
             var assembly = Assembly.GetExecutingAssembly();
-            using var stream = assembly.GetManifestResourceStream("DebitExpress.VatRelief.template.xlsx");
+            using var stream = assembly.GetManifestResourceStream("DebitExpress.VatRelief.template.xltx");
 
             if (stream == null) return;
 
-            var filePath = Path.Combine(path, "template.xlsx");
+            var filePath = Path.Combine(path, "vat-relief-template.xltx");
             using var fileStream = File.Create(Path.Combine(filePath));
             stream.Seek(0, SeekOrigin.Begin);
             stream.CopyTo(fileStream);
             fileStream.Close();
 
             NotifyResult("Template downloaded successfully");
-            OpenExcelFile(filePath);
+            OpenProcess(filePath);
         }
         finally
         {
@@ -188,15 +188,15 @@ public partial class MainWindow
         }
     }
 
-    private static void OpenExcelFile(string excelFile)
+    private static void OpenProcess(string path)
     {
-        new Process { StartInfo = new ProcessStartInfo(excelFile) { UseShellExecute = true } }.Start();
+        new Process { StartInfo = new ProcessStartInfo(path) { UseShellExecute = true } }.Start();
     }
 
     #endregion
 
     private void OnGithub(object sender, RoutedEventArgs e)
     {
-        new Process { StartInfo = new ProcessStartInfo("https://github.com/cpa-coder/vat-relief") { UseShellExecute = true } }.Start();
+        OpenProcess("https://github.com/cpa-coder/vat-relief");
     }
 }

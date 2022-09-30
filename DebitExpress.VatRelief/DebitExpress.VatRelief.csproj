@@ -18,8 +18,7 @@
 
     <ItemGroup>
       <Resource Include="favicon.png" />
-      <None Remove="template.xlsx" />
-      <EmbeddedResource Include="template.xlsx" />
+      <EmbeddedResource Include="template.xltx" />
     </ItemGroup>
 
 </Project>
