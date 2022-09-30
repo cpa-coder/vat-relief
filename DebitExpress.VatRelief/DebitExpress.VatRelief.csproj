@@ -6,6 +6,14 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <AssemblyName>vat.relief</AssemblyName>
+        <AssemblyTitle>VAT Relief</AssemblyTitle>
+        <Company>DebitExpress Business Solutions</Company>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
         <ApplicationIcon>favicon.ico</ApplicationIcon>
     </PropertyGroup>
 
