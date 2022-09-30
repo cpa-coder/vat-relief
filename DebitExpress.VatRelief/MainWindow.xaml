@@ -9,7 +9,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     mc:Ignorable="d"
     ResizeMode="NoResize"
-    Title="DebitExpress VAT Relief"
+    Title="VAT Relief Generator"
     WindowStartupLocation="CenterScreen"
     ShowTitle="True"
     AllowDrop="True"
@@ -19,6 +19,20 @@
     attached:WindowElement.ExtendContentToNonClientArea="True"
     attached:WindowElement.SaveWindowPosition="True"
     Height="500" Width="350">
+    <ctrl:Window.IconContent>
+        <Image
+            Margin="7,5,0,5"
+            Width="20"
+            Height="20"
+            attached:WindowElement.ShowSystemMenuOnRightClick="True">
+            <Image.Source>
+                <BitmapImage
+                    DecodePixelHeight="50"
+                    DecodePixelWidth="50"
+                    UriSource="/favicon.png" />
+            </Image.Source>
+        </Image>
+    </ctrl:Window.IconContent>
     <ctrl:Window.TopmostContent>
         <ctrl:SimplePanel>
             <materialDesign:Snackbar
@@ -48,6 +62,7 @@
                 Width="100"
                 Height="100"
                 Kind="FileExcelOutline"
+                Foreground="{DynamicResource PrimaryHueDarkBrush}"
                 HorizontalAlignment="Center" />
             <TextBlock
                 x:Name="FileName"
@@ -57,6 +72,7 @@
                 MaxHeight="50"
                 TextWrapping="Wrap"
                 TextTrimming="CharacterEllipsis"
+                Foreground="{DynamicResource PrimaryHueDarkBrush}"
                 Text="Drag and drop excel file here" />
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Margin="0,0,0,80">

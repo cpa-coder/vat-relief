@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+        <ApplicationIcon>favicon.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,6 +14,10 @@
       <PackageReference Include="DebitExpress.Controls" Version="2.1.16" />
       <PackageReference Include="DebitExpress.DialogService" Version="2.1.7" />
       <PackageReference Include="DebitExpress.Extensions" Version="1.0.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="favicon.png" />
     </ItemGroup>
 
 </Project>

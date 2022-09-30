@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/DebitExpress.Controls;component/Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Themes/MaterialTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Themes/MaterialTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Themes/MaterialTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

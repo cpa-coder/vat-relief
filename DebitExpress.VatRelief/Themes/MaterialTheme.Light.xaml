@@ -2,14 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
-    <Color x:Key="MaterialPaper">#BFF5EDED</Color>
+    <Color x:Key="MaterialPaper">#F6F6F6</Color>
     <Color x:Key="ValidationErrorColor">#f44336</Color>
     <SolidColorBrush x:Key="ValidationErrorBrush" Color="{StaticResource ValidationErrorColor}" po:Freeze="True" />
     <SolidColorBrush x:Key="MaterialDesignValidationErrorBrush" Color="{StaticResource ValidationErrorColor}"
                      po:Freeze="True" />
 
     <SolidColorBrush x:Key="MaterialDesignBackground" Color="#FFFFFFFF" po:Freeze="True" />
-    <SolidColorBrush x:Key="MaterialDesignPaper" Color="#FFF5EDED" po:Freeze="True" />
+    <SolidColorBrush x:Key="MaterialDesignPaper" Color="#F6F6F6" po:Freeze="True" />
     <SolidColorBrush x:Key="MaterialDesignCardBackground" Color="#FFF7F2F2" po:Freeze="True" />
     <SolidColorBrush x:Key="MaterialDesignBody" Color="#DD000000" po:Freeze="True" />
     <SolidColorBrush x:Key="MaterialDesignBodyLight" Color="#89000000" po:Freeze="True" />
