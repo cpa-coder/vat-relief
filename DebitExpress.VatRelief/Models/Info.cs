@@ -3,7 +3,6 @@
 public readonly struct Info
 {
     public Info(string tin,
-        int quarter,
         int month,
         int year, 
         string regName = "",
@@ -20,7 +19,6 @@ public readonly struct Info
         Tin = tin;
         Month = month;
         Year = year;
-        Quarter = quarter;
         RegName = regName;
         LastName = lastName;
         FirstName = firstName;
@@ -34,7 +32,6 @@ public readonly struct Info
     }
 
     public string Tin { get; }
-    public int Quarter { get; }
     public int Month { get; }
     public int Year { get; }
     public string RegName { get; }

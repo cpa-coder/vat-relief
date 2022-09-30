@@ -74,23 +74,17 @@ public class VatTemplateReader
 
         var nonIndividual = infoSheet.Cell("B12").Value.ToString() ?? string.Empty;
 
-        var quarterStr = infoSheet.Cell("B15").Value.ToString();
-        if (string.IsNullOrEmpty(quarterStr)) throw new ArgumentException("Quarter is required in INFO sheet cell B15");
-        var quarterGet = int.TryParse(quarterStr, out var quarter);
-        if (!quarterGet) throw new ArgumentException("Invalid [Quarter] value in INFO sheet cell B15");
-
-        var monthStr = infoSheet.Cell("B16").Value.ToString();
+        var monthStr = infoSheet.Cell("B15").Value.ToString();
         if (string.IsNullOrEmpty(monthStr)) throw new ArgumentException("Starting month is required in INFO sheet cell B16");
         var monthGet = _months.TryGetValue(monthStr, out var month);
         if (!monthGet) throw new ArgumentException("Invalid [Starting Month] value in INFO sheet cell B16");
 
-        var yearStr = infoSheet.Cell("B17").Value.ToString();
+        var yearStr = infoSheet.Cell("B16").Value.ToString();
         if (string.IsNullOrEmpty(yearStr)) throw new ArgumentException("Year is required in INFO sheet cell B17");
         var yearGet = int.TryParse(yearStr, out var year);
         if (!yearGet) throw new ArgumentException("Invalid [Year] value in INFO sheet cell B17");
 
         return new Info(tin.Strip(),
-            quarter,
             month,
             year,
             regName.CleanUp(),
