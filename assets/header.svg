@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 80">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #644d52;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: #f3f2d9;
+      }
+
+      .cls-3 {
+        font-family: ArialMT, Arial;
+        font-size: 7.54px;
+      }
+
+      .cls-5 {
+        fill: #654e53;
+      }
+
+      .cls-4 {
+        font-family: Consolas, Consolas;
+        font-size: 11.5px;
+      }
+
+      .cls-6 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.07em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="450" height="80"/>
+  <g>
+    <path class="cls-2" d="M71.6,8.46V63.83H10.82V8.46h60.78m.5-.5H10.32v56.38h61.78V7.96h0Z"/>
+    <rect class="cls-2" x="10.32" y="7.82" width="61.78" height="35.94"/>
+    <text class="cls-3" transform="translate(17.54 72.18)"><tspan x="0" y="0">GENER</tspan><tspan class="cls-7" x="26.8" y="0">A</tspan><tspan class="cls-6" x="31.27" y="0">T</tspan><tspan x="35.74" y="0">OR</tspan></text>
+    <g>
+      <polygon class="cls-5" points="34 10.74 26.24 42.13 23.86 42.13 16.45 10.74 18.68 10.74 25.08 37.77 31.76 10.74 34 10.74"/>
+      <path class="cls-5" d="M45.48,10.74h-2.33l-7.7,31.39h2.24l2.03-8.2h9.45l2.09,8.2h2.27l-8.05-31.39Zm-5.23,21.01l4.1-16.71,4.27,16.71h-8.37Z"/>
+      <polygon class="cls-5" points="65.97 10.74 65.97 12.92 59.7 12.92 59.7 42.13 57.52 42.13 57.52 12.92 51.27 12.92 51.27 10.74 65.97 10.74"/>
+    </g>
+    <g>
+      <path class="cls-2" d="M19.78,55.31c1.45-.65,2.45-2.1,2.45-3.79v-.79c0-2.3-1.86-4.17-4.16-4.17h-4.62v14.63h2.71v-5.51h.69l3.24,5.51h3.14l-3.45-5.88Zm-3.62-6.04h1.91c.8,0,1.45,.66,1.45,1.46v.79c0,.8-.65,1.45-1.45,1.45h-1.91v-3.7Z"/>
+      <polygon class="cls-2" points="27.26 49.27 27.26 52.52 32.09 52.52 32.09 55.23 27.26 55.23 27.26 58.48 32.74 58.48 32.74 61.19 24.55 61.19 24.55 46.56 32.78 46.56 32.78 49.27 27.26 49.27"/>
+      <polygon class="cls-2" points="43.49 58.48 43.49 61.19 35.3 61.19 35.3 46.56 38.01 46.56 38.01 58.48 43.49 58.48"/>
+      <rect class="cls-2" x="45.04" y="46.56" width="2.71" height="14.63"/>
+      <polygon class="cls-2" points="53.05 49.27 53.05 52.52 57.87 52.52 57.87 55.23 53.05 55.23 53.05 58.48 58.52 58.48 58.52 61.19 50.34 61.19 50.34 46.56 58.58 46.56 58.58 49.27 53.05 49.27"/>
+      <polygon class="cls-2" points="63.44 49.27 63.44 52.52 68.28 52.52 68.28 55.23 63.44 55.23 63.44 61.19 60.73 61.19 60.73 46.56 68.97 46.56 68.97 49.27 63.44 49.27"/>
+    </g>
+  </g>
+  <text class="cls-4" transform="translate(85.66 55.22)"><tspan x="0" y="0">Simplify data entries and generate</tspan><tspan x="0" y="13.8">BIR VAT Relief files with ease</tspan></text>
+</svg>
