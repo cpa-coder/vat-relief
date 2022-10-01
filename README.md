@@ -14,16 +14,16 @@ VAT Relief Generator is an open source windows application to simplify the proce
 ## Usage
 1. Download the latest stable release from the [Releases](https://github.com/cpa-coder/vat-relief/releases) page.
 
-2. Download a excel template directly from the application or from [here](https://github.com/cpa-coder/vat-relief/blob/main/DebitExpress.VatRelief/template.xltx).
+2. Download an excel template directly from the application or from [here](https://github.com/cpa-coder/vat-relief/blob/main/DebitExpress.VatRelief/template.xltx).
    <img alt="" src="./assets/step2.gif">
 
-3. Fill in the data in the template. Make sure to read the instruction carefully to properly fill-out the downloaded template.
+3. Fill in the data in the template. Make sure to read the instructions carefully to properly fill-out the template.
    <img alt="" src="./assets/step3.gif">
 
 4. Drag and drop the template to the application.
    <img alt="" src="./assets/step4.gif">
 
-5. Click the generate button to generate the VAT relief files. The generated files will be saved in the same directory as the template.
+5. Click the "Generate" button to generate the VAT relief files. The generated files will be saved in the same directory as the template.
    <img alt="" src="./assets/step5.gif">
 
 6. Validate the generated files using the [BIR Relief v2.3](https://www.bir.gov.ph/index.php/downloadables.html#relief) which includes validation tool.
