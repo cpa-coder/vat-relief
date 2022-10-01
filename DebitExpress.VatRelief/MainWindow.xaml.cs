@@ -107,7 +107,8 @@ public partial class MainWindow
             }
 
             ExcelData data = result;
-            var path = Path.Combine(Path.GetTempPath(), "vat-relief", Guid.NewGuid().ToString().Replace("-", string.Empty));
+            var templateFolder = Path.GetDirectoryName(_filePath) ?? Path.GetTempPath();
+            var path = Path.Combine(templateFolder, "vat-relief-output");
             Directory.CreateDirectory(path);
 
             var generator = new DatFileGenerator();
