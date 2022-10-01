@@ -101,7 +101,7 @@ public class ExcelReconWriter
         sheet.Cell("A2").Value = "RECONCILIATION OF LISTING FOR ENFORCEMENT";
         sheet.Cell("A6").Value = $"TIN : {info.Tin.Strip()}";
 
-        var name = info.NonIndividual ? $"{info.LastName}, {info.FirstName} {info.MiddleName}" : info.RegName;
+        var name = info.NonIndividual ? info.RegName : $"{info.LastName}, {info.FirstName} {info.MiddleName}";
         sheet.Cell("A7").Value = $"OWNER'S NAME: {name}";
 
         sheet.Cell("A8").Value = $"OWNER'S TRADE NAME : {info.TradeName}";
@@ -195,7 +195,7 @@ public class ExcelReconWriter
         sheet.Cell("A2").Value = "RECONCILIATION OF LISTING FOR ENFORCEMENT";
         sheet.Cell("A6").Value = $"TIN : {info.Tin.Strip()}";
 
-        var name = $"{info.LastName}, {info.FirstName} {info.MiddleName}";
+        var name = info.NonIndividual ? info.RegName : $"{info.LastName}, {info.FirstName} {info.MiddleName}";
         sheet.Cell("A7").Value = $"OWNER'S NAME: {name}";
 
         sheet.Cell("A8").Value = $"OWNER'S TRADE NAME : {info.TradeName}";
