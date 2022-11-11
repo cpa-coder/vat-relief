@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using ClosedXML.Excel;
 using DebitExpress.StringBuilders;
 using DebitExpress.VatRelief.Models;
@@ -10,6 +11,11 @@ namespace DebitExpress.VatRelief.Utils;
 
 public class ExcelReconWriter
 {
+    public Task<Result> WriteReconciliationReportAsync(ExcelData data, string path)
+    {
+        return Task.Factory.StartNew(() => WriteReconciliationReport(data, path));
+    }
+
     public Result WriteReconciliationReport(ExcelData data, string path)
     {
         try

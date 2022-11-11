@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using DebitExpress.Controls.Dialogs;
+using DebitExpress.DialogService;
 using DebitExpress.VatRelief.Models;
 using DebitExpress.VatRelief.Utils;
 using MaterialDesignThemes.Wpf;
@@ -15,6 +17,7 @@ namespace DebitExpress.VatRelief;
 /// </summary>
 public partial class MainWindow
 {
+    private readonly IDialog _dialog = new Dialog();
     private string _filePath = string.Empty;
     private readonly SnackbarMessageQueue _messageQueue;
     private readonly SnackbarMessageQueue _errorQueue;
@@ -33,8 +36,8 @@ public partial class MainWindow
 
         GenerateButton.Click += OnGenerate;
         DownloadButton.Click += OnDownload;
-        GithubButton.Click+= OnGithub;
-        Loaded+= OnLoaded;
+        GithubButton.Click += OnGithub;
+        Loaded += OnLoaded;
     }
 
     private void OnLoaded(object sender, RoutedEventArgs e)
@@ -89,6 +92,7 @@ public partial class MainWindow
 
     private async void OnGenerate(object sender, RoutedEventArgs e)
     {
+        var loader = await _dialog.ShowLoadingAsync();
         try
         {
             if (!File.Exists(_filePath))
@@ -120,7 +124,7 @@ public partial class MainWindow
             }
 
             var reconWriter = new ExcelReconWriter();
-            var writeResult = reconWriter.WriteReconciliationReport(data, path);
+            var writeResult = await reconWriter.WriteReconciliationReportAsync(data, path);
 
             if (writeResult.IsFaulted)
             {
@@ -135,6 +139,7 @@ public partial class MainWindow
         finally
         {
             GenerateButton.IsEnabled = true;
+            await _dialog.CloseLoadingAsync(loader);
         }
     }
 
