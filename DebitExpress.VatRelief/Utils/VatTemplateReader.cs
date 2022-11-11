@@ -122,8 +122,14 @@ public class VatTemplateReader
         var eomStr = row.Cell("A").Value.ToString();
         if (string.IsNullOrEmpty(eomStr)) throw new ArgumentException($"MONTH_END field is required in SALES sheet cell A{i}");
         var eomParsed = DateTime.TryParse(eomStr, out var eom);
+
         if (!eomParsed) throw new ArgumentException($"Invalid [MONTH_END] value in SALES sheet cell A{i}");
 
+        var monthEnd = eom.Day;
+        var expectedMonthEnd = DateTime.DaysInMonth(eom.Year, eom.Month);
+        if (monthEnd != expectedMonthEnd)
+            throw new ArgumentException($"Invalid [MONTH_END] value in SALES sheet cell A{i}");
+        
         var tin = row.Cell("B").Value.ToString() ?? string.Empty;
         if (!string.IsNullOrEmpty(tin) && !tin.IsValidTin())
             throw new ArgumentException($"Invalid [TIN] value in SALES sheet cell B{i}");
@@ -179,7 +185,7 @@ public class VatTemplateReader
         {
             var row = purchaseSheet.Row(i);
             var purchase = ParsePurchasesLineItem(row, i);
-            
+
             if (purchase.Tin.Strip() == info.Tin)
                 throw new ArgumentException($"TIN in PURCHASES sheet cell B{i} cannot be the same as the TIN of the taxpayer");
 
@@ -197,7 +203,13 @@ public class VatTemplateReader
         var eomStr = row.Cell("A").Value.ToString();
         if (string.IsNullOrEmpty(eomStr)) throw new ArgumentException($"MONTH_END field is required in PURCHASES sheet cell A{i}");
         var eomParsed = DateTime.TryParse(eomStr, out var eom);
+
         if (!eomParsed) throw new ArgumentException($"Invalid [MONTH_END] value in PURCHASES sheet cell A{i}");
+
+        var monthEnd = eom.Day;
+        var expectedMonthEnd = DateTime.DaysInMonth(eom.Year, eom.Month);
+        if (monthEnd != expectedMonthEnd)
+            throw new ArgumentException($"Invalid [MONTH_END] value in PURCHASES sheet cell A{i}");
 
         var tin = row.Cell("B").Value.ToString() ?? string.Empty;
         if (!tin.IsValidTin()) throw new ArgumentException($"Invalid [TIN] value in PURCHASES sheet cell B{i}");
