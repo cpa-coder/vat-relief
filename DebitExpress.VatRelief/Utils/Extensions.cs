@@ -93,13 +93,6 @@ internal static class Extensions
         return upper is "YES" or "Y" or "TRUE" or "T" or "1";
     }
 
-    public static bool IsValidTin(this string? str)
-    {
-        if (string.IsNullOrEmpty(str)) return false;
-
-        return new Regex("^[0-9]\\d{2}-[0-9]\\d{2}-[0-9]\\d{2}-[0-9]\\d{2,4}$").IsMatch(str);
-    }
-
     public static string QuarterRangeString(int startingMonth, int year)
     {
         var startingDate = GetEndOfMonth(year, startingMonth);
