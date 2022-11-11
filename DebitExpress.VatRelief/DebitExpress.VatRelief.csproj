@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0-windows</TargetFramework>
+        <TargetFramework>net7.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
@@ -18,10 +18,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="ClosedXML" Version="0.96.0" />
-      <PackageReference Include="DebitExpress.Controls" Version="2.1.16" />
-      <PackageReference Include="DebitExpress.DialogService" Version="2.1.7" />
-      <PackageReference Include="DebitExpress.Extensions" Version="1.0.10" />
+      <PackageReference Include="ClosedXML" Version="0.97.0" />
+      <PackageReference Include="DebitExpress.Controls" Version="2.1.24" />
+      <PackageReference Include="DebitExpress.DialogService" Version="2.1.8" />
+      <PackageReference Include="DebitExpress.Extensions" Version="1.0.11" />
     </ItemGroup>
 
     <ItemGroup>
