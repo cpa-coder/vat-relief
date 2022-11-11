@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using ClosedXML.Excel;
+using DebitExpress.StringBuilders;
 using DebitExpress.VatRelief.Models;
 
 namespace DebitExpress.VatRelief.Utils;
 
 public class ExcelReconWriter
 {
+    public Task<Result> WriteReconciliationReportAsync(ExcelData data, string path)
+    {
+        return Task.Factory.StartNew(() => WriteReconciliationReport(data, path));
+    }
+
     public Result WriteReconciliationReport(ExcelData data, string path)
     {
         try
@@ -101,7 +108,13 @@ public class ExcelReconWriter
         sheet.Cell("A2").Value = "RECONCILIATION OF LISTING FOR ENFORCEMENT";
         sheet.Cell("A6").Value = $"TIN : {info.Tin.Strip()}";
 
-        var name = info.NonIndividual ? info.RegName : $"{info.LastName}, {info.FirstName} {info.MiddleName}";
+        var taxPayer = new NameBuilder()
+            .LastName(info.LastName)
+            .WithFirstName(info.FirstName)
+            .WithMiddleName(info.MiddleName)
+            .ToString();
+
+        var name = info.NonIndividual ? info.RegName : taxPayer;
         sheet.Cell("A7").Value = $"OWNER'S NAME: {name}";
 
         sheet.Cell("A8").Value = $"OWNER'S TRADE NAME : {info.TradeName}";
@@ -195,7 +208,13 @@ public class ExcelReconWriter
         sheet.Cell("A2").Value = "RECONCILIATION OF LISTING FOR ENFORCEMENT";
         sheet.Cell("A6").Value = $"TIN : {info.Tin.Strip()}";
 
-        var name = info.NonIndividual ? info.RegName : $"{info.LastName}, {info.FirstName} {info.MiddleName}";
+        var taxPayer = new NameBuilder()
+            .LastName(info.LastName)
+            .WithFirstName(info.FirstName)
+            .WithMiddleName(info.MiddleName)
+            .ToString();
+
+        var name = info.NonIndividual ? info.RegName : taxPayer;
         sheet.Cell("A7").Value = $"OWNER'S NAME: {name}";
 
         sheet.Cell("A8").Value = $"OWNER'S TRADE NAME : {info.TradeName}";

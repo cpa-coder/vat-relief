@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using DebitExpress.VatRelief.Unidecode;
 
 namespace DebitExpress.VatRelief.Utils;
 
@@ -9,7 +10,7 @@ internal static class Extensions
     public static string CleanUp(this string str)
     {
         if (string.IsNullOrWhiteSpace(str)) return string.Empty;
-        return Regex.Replace(str, "[,$`&\"']", string.Empty).NormalizeWhiteSpace().Trim().ToUpper();
+        return Regex.Replace(str, "[,$`&\"']", string.Empty).NormalizeWhiteSpace().Trim().ToUpper().Unidecode();
     }
 
     public static string NormalizeWhiteSpace(this string input)
@@ -68,7 +69,7 @@ internal static class Extensions
         if (string.IsNullOrWhiteSpace(str)) return string.Empty;
 
         var num = Regex.Replace(str, "[^0-9]", "");
-        return num.PadRight(9, '0')[..9];
+        return num.PadRight(9, '0')[..9].Unidecode();
     }
 
     public static string ToValue(this decimal val)
@@ -91,13 +92,6 @@ internal static class Extensions
 
         var upper = str.ToUpper();
         return upper is "YES" or "Y" or "TRUE" or "T" or "1";
-    }
-
-    public static bool IsValidTin(this string? str)
-    {
-        if (string.IsNullOrEmpty(str)) return false;
-
-        return new Regex("^[0-9]\\d{2}-[0-9]\\d{2}-[0-9]\\d{2}-[0-9]\\d{2,4}$").IsMatch(str);
     }
 
     public static string QuarterRangeString(int startingMonth, int year)

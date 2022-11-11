@@ -41,7 +41,7 @@ public class VatTemplateReader
             var workbook = new XLWorkbook(path);
             var info = GetInfo(workbook);
             var sales = GetSalesData(workbook);
-            var purchases = GetPurchaseData(workbook);
+            var purchases = GetPurchaseData(workbook, info);
 
             return new Result<ExcelData>(new ExcelData(info, sales, purchases));
         }
@@ -168,7 +168,7 @@ public class VatTemplateReader
         };
     }
 
-    private static List<Purchases> GetPurchaseData(IXLWorkbook workbook)
+    private static List<Purchases> GetPurchaseData(IXLWorkbook workbook, Info info)
     {
         var purchaseSheet = workbook.Worksheet("PURCHASES");
         if (purchaseSheet == null) throw new ArgumentException("PURCHASES sheet not found");
@@ -178,7 +178,12 @@ public class VatTemplateReader
         for (var i = 2; i <= rowCount; i++)
         {
             var row = purchaseSheet.Row(i);
-            purchases.Add(ParsePurchasesLineItem(row, i));
+            var purchase = ParsePurchasesLineItem(row, i);
+            
+            if (purchase.Tin.Strip() == info.Tin)
+                throw new ArgumentException($"TIN in PURCHASES sheet cell B{i} cannot be the same as the TIN of the taxpayer");
+
+            purchases.Add(purchase);
         }
 
         return purchases;
