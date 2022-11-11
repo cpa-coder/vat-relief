@@ -22,6 +22,7 @@
       <PackageReference Include="DebitExpress.Controls" Version="2.1.24" />
       <PackageReference Include="DebitExpress.DialogService" Version="2.1.8" />
       <PackageReference Include="DebitExpress.Extensions" Version="1.0.11" />
+      <PackageReference Include="DebitExpress.StringBuilders" Version="1.0.5" />
     </ItemGroup>
 
     <ItemGroup>

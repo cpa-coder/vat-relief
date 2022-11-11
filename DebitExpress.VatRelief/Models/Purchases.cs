@@ -1,4 +1,5 @@
 ﻿using System;
+using DebitExpress.StringBuilders;
 
 namespace DebitExpress.VatRelief.Models;
 
@@ -15,7 +16,11 @@ public struct Purchases
 
     public string MiddleName { get; set; }
 
-    public string FullName => $"{LastName}, {FirstName} {MiddleName}";
+    public string FullName => new NameBuilder()
+        .LastName(LastName)
+        .WithFirstName(FirstName)
+        .WithMiddleName(MiddleName)
+        .ToString() ?? string.Empty;
     public string Street { get; set; }
 
     public string City { get; set; }
