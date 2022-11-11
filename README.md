@@ -39,6 +39,7 @@ Thank you :gift_heart: to the following projects for making VAT Relief Generator
 * [Microsoft .NET](https://dotnet.microsoft.com/en-us/)
 * [Material Design In XAML Toolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 * [ClosedXML](https://github.com/ClosedXML/ClosedXML)
+* [UnidecodeSharpCore](https://github.com/codeyu/UnidecodeSharpCore)
 
 ## Disclaimer
 
